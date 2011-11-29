@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC7EB56C148469C100173623 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56B148469C100173623 /* UIKit.framework */; };
+		EC7EB56E148469C100173623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56D148469C100173623 /* Foundation.framework */; };
+		EC7EB570148469C100173623 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56F148469C100173623 /* CoreGraphics.framework */; };
+		EC7EB576148469C100173623 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB574148469C100173623 /* InfoPlist.strings */; };
+		EC7EB578148469C100173623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7EB577148469C100173623 /* main.m */; };
+		EC7EB57C148469C100173623 /* CS193PAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7EB57B148469C100173623 /* CS193PAppDelegate.m */; };
+		EC7EB57F148469C100173623 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB57D148469C100173623 /* MainStoryboard.storyboard */; };
+		EC7EB582148469C100173623 /* CS193PViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7EB581148469C100173623 /* CS193PViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EC7EB567148469C100173623 /* CS193P Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS193P Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC7EB56B148469C100173623 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EC7EB56D148469C100173623 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EC7EB56F148469C100173623 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EC7EB573148469C100173623 /* CS193P Companion-Info.plist */ = {isa = PBXFileReference; path = "CS193P Companion-Info.plist"; sourceTree = "<group>"; };
+		EC7EB575148469C100173623 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EC7EB577148469C100173623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EC7EB579148469C100173623 /* CS193P Companion-Prefix.pch */ = {isa = PBXFileReference; path = "CS193P Companion-Prefix.pch"; sourceTree = "<group>"; };
+		EC7EB57A148469C100173623 /* CS193PAppDelegate.h */ = {isa = PBXFileReference; path = CS193PAppDelegate.h; sourceTree = "<group>"; };
+		EC7EB57B148469C100173623 /* CS193PAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS193PAppDelegate.m; sourceTree = "<group>"; };
+		EC7EB57E148469C100173623 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EC7EB580148469C100173623 /* CS193PViewController.h */ = {isa = PBXFileReference; path = CS193PViewController.h; sourceTree = "<group>"; };
+		EC7EB581148469C100173623 /* CS193PViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS193PViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC7EB564148469C100173623 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7EB56C148469C100173623 /* UIKit.framework in Frameworks */,
+				EC7EB56E148469C100173623 /* Foundation.framework in Frameworks */,
+				EC7EB570148469C100173623 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC7EB55C148469C000173623 = {
+			isa = PBXGroup;
+			children = (
+				EC7EB571148469C100173623 /* CS193P Companion */,
+				EC7EB56A148469C100173623 /* Frameworks */,
+				EC7EB568148469C100173623 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC7EB568148469C100173623 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC7EB567148469C100173623 /* CS193P Companion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC7EB56A148469C100173623 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC7EB56B148469C100173623 /* UIKit.framework */,
+				EC7EB56D148469C100173623 /* Foundation.framework */,
+				EC7EB56F148469C100173623 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC7EB571148469C100173623 /* CS193P Companion */ = {
+			isa = PBXGroup;
+			children = (
+				EC7EB57A148469C100173623 /* CS193PAppDelegate.h */,
+				EC7EB57B148469C100173623 /* CS193PAppDelegate.m */,
+				EC7EB57D148469C100173623 /* MainStoryboard.storyboard */,
+				EC7EB580148469C100173623 /* CS193PViewController.h */,
+				EC7EB581148469C100173623 /* CS193PViewController.m */,
+				EC7EB572148469C100173623 /* Supporting Files */,
+			);
+			path = "CS193P Companion";
+			sourceTree = "<group>";
+		};
+		EC7EB572148469C100173623 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC7EB573148469C100173623 /* CS193P Companion-Info.plist */,
+				EC7EB574148469C100173623 /* InfoPlist.strings */,
+				EC7EB577148469C100173623 /* main.m */,
+				EC7EB579148469C100173623 /* CS193P Companion-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC7EB566148469C100173623 /* CS193P Companion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC7EB585148469C100173623 /* Build configuration list for PBXNativeTarget "CS193P Companion" */;
+			buildPhases = (
+				EC7EB563148469C100173623 /* Sources */,
+				EC7EB564148469C100173623 /* Frameworks */,
+				EC7EB565148469C100173623 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CS193P Companion";
+			productName = "CS193P Companion";
+			productReference = EC7EB567148469C100173623 /* CS193P Companion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC7EB55E148469C000173623 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Stanford University";
+			};
+			buildConfigurationList = EC7EB561148469C000173623 /* Build configuration list for PBXProject "CS193P Companion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC7EB55C148469C000173623;
+			productRefGroup = EC7EB568148469C100173623 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC7EB566148469C100173623 /* CS193P Companion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC7EB565148469C100173623 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7EB576148469C100173623 /* InfoPlist.strings in Resources */,
+				EC7EB57F148469C100173623 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC7EB563148469C100173623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7EB578148469C100173623 /* main.m in Sources */,
+				EC7EB57C148469C100173623 /* CS193PAppDelegate.m in Sources */,
+				EC7EB582148469C100173623 /* CS193PViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EC7EB574148469C100173623 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC7EB575148469C100173623 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EC7EB57D148469C100173623 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC7EB57E148469C100173623 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC7EB583148469C100173623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EC7EB584148469C100173623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC7EB586148469C100173623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS193P Companion/CS193P Companion-Prefix.pch";
+				INFOPLIST_FILE = "CS193P Companion/CS193P Companion-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EC7EB587148469C100173623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS193P Companion/CS193P Companion-Prefix.pch";
+				INFOPLIST_FILE = "CS193P Companion/CS193P Companion-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC7EB561148469C000173623 /* Build configuration list for PBXProject "CS193P Companion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7EB583148469C100173623 /* Debug */,
+				EC7EB584148469C100173623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC7EB585148469C100173623 /* Build configuration list for PBXNativeTarget "CS193P Companion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7EB586148469C100173623 /* Debug */,
+				EC7EB587148469C100173623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC7EB55E148469C000173623 /* Project object */;
+}
