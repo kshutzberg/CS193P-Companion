@@ -1,0 +1,25 @@
+TODO List
+
+HOME SCREEN
+- Fix Homescreen
+
+GAMEKIT:
+- Automatic Matchmaking
+- Handle disconnects
+- Player Roles
+
+
+- Reset Questions Answer Counts to zero when they are asked.  Also force the instructor to stay on the results page while the question is being asked.
+
+INSTRUCTOR:
+Implement Basic UI
+    - Figure out how to make an editable group table view (Like the contacts app)
+Add Ability to create new questions and lectures
+    - Figure out how to make an editable group table view (Like the contacts app)
+Implement Search Bar Controller
+    - Do this last, this may not be necessary
+
+Clean up the UI
+Clean up the gamekit classes
+
+Design a student UI

@@ -7,14 +7,49 @@
 //
 
 #import "CS193PAppDelegate.h"
+#import <GameKit/GameKit.h>
+#import "AskerViewController.h"
+#import "QuestionMessage.h"
 
 @implementation CS193PAppDelegate
 
 @synthesize window = _window;
 
+- (void) authenticateLocalPlayer
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    [localPlayer authenticateWithCompletionHandler:^(NSError *error) {
+        if (localPlayer.isAuthenticated)
+        {
+            // Perform additional tasks for the authenticated player.
+            NSLog(@"Player {%@} Authenticated!",localPlayer.alias);
+        }
+        
+        else
+        {
+            [[[UIAlertView alloc] initWithTitle:@"Gamecenter Required" message:@"Please log in to game center to connect to the class." delegate:nil cancelButtonTitle:@"OK. Ya, I'm an idiot." otherButtonTitles: nil] show];
+            NSLog(@"Could not authenticate local player");
+            NSLog(@"%@",error);
+        }
+    }];
+}
+
+- (void)displayQuestionWithInfo:(NSDictionary *)info
+{
+    UIViewController *root = self.window.rootViewController;
+    if(root.presentedViewController)
+        [root dismissModalViewControllerAnimated:NO];
+    
+    AskerViewController *asker = [root.storyboard instantiateViewControllerWithIdentifier:@"asker"];
+    asker.answers = [info valueForKey:ANSWERS];
+    asker.promptLabel.text = [info valueForKey:PROMPT];
+    asker.titleLabel.text = [info valueForKey:QUESTION_NAME]; 
+    [root presentModalViewController: asker animated:YES];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //[self authenticateLocalPlayer];
     return YES;
 }
 							
