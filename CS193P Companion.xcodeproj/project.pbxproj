@@ -16,7 +16,6 @@
 		EC5A1DD514961703001338A5 /* KevinShutzbergCS193P.key in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DD414961703001338A5 /* KevinShutzbergCS193P.key */; };
 		EC5A1DDD1496AEFD001338A5 /* icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DDB1496AEFD001338A5 /* icon_ipad.png */; };
 		EC5A1DE01496AF48001338A5 /* icon_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */; };
-		EC5A1DE21496B2C6001338A5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DE11496B2C6001338A5 /* README */; };
 		EC5C997F148F306100250102 /* AskerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C997E148F306000250102 /* AskerViewController.m */; };
 		EC5CA5851485E88E0053DAE7 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5831485E88E0053DAE7 /* DataModel.xcdatamodeld */; };
 		EC5CA5971485E8C10053DAE7 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5961485E8C10053DAE7 /* Topic.m */; };
@@ -73,7 +72,6 @@
 		EC5A1DDA1496AEFD001338A5 /* icon_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone4.png; path = "CS193P Companion/icon_iphone4.png"; sourceTree = "<group>"; };
 		EC5A1DDB1496AEFD001338A5 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_ipad.png; path = "CS193P Companion/icon_ipad.png"; sourceTree = "<group>"; };
 		EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_iphone4.png; sourceTree = "<group>"; };
-		EC5A1DE11496B2C6001338A5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		EC5C997D148F305D00250102 /* AskerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskerViewController.h; sourceTree = "<group>"; };
 		EC5C997E148F306000250102 /* AskerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskerViewController.m; sourceTree = "<group>"; };
 		EC5CA5841485E88E0053DAE7 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 		EC7EB55C148469C000173623 = {
 			isa = PBXGroup;
 			children = (
-				EC5A1DE11496B2C6001338A5 /* README */,
 				EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */,
 				EC5A1DD414961703001338A5 /* KevinShutzbergCS193P.key */,
 				EC7EB571148469C100173623 /* CS193P Companion */,
@@ -423,7 +420,6 @@
 				EC5A1DD514961703001338A5 /* KevinShutzbergCS193P.key in Resources */,
 				EC5A1DDD1496AEFD001338A5 /* icon_ipad.png in Resources */,
 				EC5A1DE01496AF48001338A5 /* icon_iphone4.png in Resources */,
-				EC5A1DE21496B2C6001338A5 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
