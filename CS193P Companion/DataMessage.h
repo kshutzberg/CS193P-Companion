@@ -7,41 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreFoundation/CoreFoundation.h>
 #import "Question.h"
+#import "Entities+Create.h"
 
-@interface DataMessage : NSDictionary
+@interface DataMessage : NSObject
 
-+ (id)message; //Returns a concrete instance of DataMessage, or the subclass that called it
+//Message Type IdentificationKey
+#define MESSAGE_TYPE @"message_type"
 
-//Converting Between Message and Data
-+ (NSData *)dataWithMessage:(DataMessage *)message;
-+ (NSDictionary *)messageWithData:(NSData *)data;
-
-@end
-
-@interface DataPacket : NSObject
-
-@property (nonatomic, strong) Class type;
-@property (nonatomic, strong) NSDictionary *message;
-
-+ (DataPacket *)packet;
-
-#define OBJECT_TYPE @"object_type"
-
-//Types
 #define TYPE_QUESTION @"questionType"
 #define TYPE_ANSWER @"answerType"
+#define TYPE_INSTRUCTOR_ID @"instructoridType"
 
-//Question Constants
+//Question message constants
 #define QUESTION_NAME @"questionName"
 #define PROMPT @"prompt"
 #define TIME @"time"
 #define ANSWERS @"answers"
 
-//Answer constants
+//Answer message constants
 #define ANSWER_INDEX @"answerIndex"
 
-+ (NSData *)DatatForMessage:(NSDictionary *)message withType:(NSString *)type;
+//Instructor ID message constants
+#define INSTRUCTOR_ID @"instructor_id"
+
+
++ (NSData *)dataWithQuestion:(Question *)question;
++ (NSData *)dataWithAnswerIndex:(NSUInteger)index;
++ (NSData *)dataWithInstructorID:(NSString *)instructorID;
 
 @end
+

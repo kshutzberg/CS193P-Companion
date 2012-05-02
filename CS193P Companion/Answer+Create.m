@@ -26,7 +26,9 @@
     
     //Initialize Attributes
     answer.answerText = text;
-    answer.numPeople = 0; //arc4random()%10;
+    
+    BOOL testResults = [[[NSUserDefaults standardUserDefaults] objectForKey:@"test_results"] boolValue];
+    answer.numPeople = testResults ? arc4random()%10 : 0;
 
     return answer;
 }
@@ -41,4 +43,8 @@
     return retVal;
 }
 
+- (NSNumber *)order
+{
+    return [NSNumber numberWithInt:[self.question.answers indexOfObject:self]];
+}
 @end

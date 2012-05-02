@@ -7,9 +7,9 @@
 //
 
 #import "EntityPickerTableViewController.h"
+#import "EditableCell.h"
 
-@interface EntityPickerTableViewController()
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@interface EntityPickerTableViewController()<EditableCellDelegate>
 
 @end
 
@@ -47,6 +47,7 @@
     }
     return _addButton;
 }
+
 
 #pragma mark - View lifecycle
 
@@ -90,6 +91,34 @@
     [super viewDidDisappear:animated];
 }
 
+#pragma mark - Editable cell delegate
+
+-(BOOL)userCanEditCell:(EditableCell *)sender
+{
+    return [self.delegate respondsToSelector:@selector(userDidChangeCellTitleForEntity:withText:)];
+}
+
+-(void)userDidChangeCellTitleToTitle:(NSString *)toTitle forCell:(EditableCell *)sender
+{
+    if([self.delegate respondsToSelector:@selector(userDidChangeCellTitleForEntity:withText:)])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        id entity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        [self.delegate userDidChangeCellTitleForEntity:entity withText:toTitle];
+    }
+}
+
+- (void)editableCelldidBeginEditting:(EditableCell *)cell
+{
+    
+}
+
+- (void)editableCelldidEndEditting:(EditableCell *)cell
+{
+    
+}
+
 #pragma mark - Table view data source
 
 
@@ -98,25 +127,31 @@
 {
     static NSString *CellIdentifier = @"EntityCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EditableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[EditableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *text;
     if ([object isKindOfClass:[Topic class]]) {
-        cell.textLabel.text = [(Topic *)object topicName];
+        text = [(Topic *)object topicName];
     }
     else if ([object isKindOfClass:[Lecture class]]) {
-        cell.textLabel.text = [(Lecture *)object lectureName];
+        text = [(Lecture *)object lectureName];
     }
     else if ([object isKindOfClass:[Answer class]]) {
-        cell.textLabel.text = [(Answer *)object answerText];
+        text = [(Answer *)object answerText];
     }
+    
+    if (cell.textField)cell.textField.text = text;
+    else cell.textLabel.text = text;
     
     cell.accessoryType = [self.selectedObjects containsObject:object] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
+    cell.delegate = self;
     return cell;
 }
 
@@ -158,6 +193,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
     //Notify the delegae what the user has picked: (If the delegate wants these messages and the VC is configured to send them)
     if(self.mode == PickerModeNoSelection || ![self.delegate respondsToSelector:@selector(userDidPickEntities:forEntityType:)])return;
@@ -181,7 +217,8 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             oldCell.accessoryType = UITableViewCellAccessoryNone; //This line of code should be redundant, because oldCell should equal cell
         }
-        else if (self.mode == PickerModeOptionalSingleSelection){
+        //If selected objects is empty, add one
+        else if (![self.selectedObjects count]){
             [self.selectedObjects addObject:object];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
@@ -197,8 +234,6 @@
             [self.selectedObjects addObject:object];
         }
     }
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self.delegate userDidPickEntities:self.selectedObjects forEntityType:self.fetchedResultsController.fetchRequest.entityName];
 }
 

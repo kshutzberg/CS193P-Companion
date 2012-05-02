@@ -9,18 +9,23 @@
 #import "QuestionInfoViewController.h"
 #import "Entities+Create.h"
 #import "EntityPickerTableViewController.h"
+#import "TimePickerTableViewController.h"
 #import "BarGraphView.h"
 #import "BarGraphViewController.h"
 #import "GKMatchHandler.h"
-#import "QuestionMessage.h"
+#import "DataMessage.h"
+#import "AnswerPickerTableViewController.h"
 
-@interface QuestionInfoViewController() <EntityPickerDelegate, UIAlertViewDelegate>
+@interface QuestionInfoViewController() <EntityPickerDelegate, ObjectPickerTableViewControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *promptField;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *lectureCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *topicCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *askCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *timeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *answersCell;
+
 @end
 
 @implementation QuestionInfoViewController
@@ -31,6 +36,11 @@
 @synthesize lectureCell = _lectureCell;
 @synthesize topicCell = _topicCell;
 @synthesize askCell = _askCell;
+@synthesize timeCell = _timeCell;
+@synthesize answersCell = _answersCell;
+
+#define OPTVC_ANSWERS @"answer_chooser"
+#define OPTVC_TIMES @"time_chooser"
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -63,39 +73,131 @@
     }
     
     else if([segue.identifier isEqualToString:@"showAnswers"]){
-        EntityPickerTableViewController *answersVC = segue.destinationViewController;
+        //For some reason, Xcode descided to compile my program so that viewDidLoad gets called before THIS specific prepare for segue an hour before I turn my project in.  GOOD JOB APPLE.  This code has been moved old style to the did select row at index path method
+        
+        AnswerPickerTableViewController *answersVC = [[(UINavigationController *)segue.destinationViewController viewControllers] lastObject];
         answersVC.mode = PickerModeOptionalSingleSelection;
         if (self.question.correctIndex >=0 && self.question.correctIndex < self.question.answers.count) {
             answersVC.selectedObjects = [NSMutableArray arrayWithObject:[self.question.answers objectAtIndex:self.question.correctIndex]];
         }
         answersVC.delegate = self;
         
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:ENTITY_ANSWER];
-        NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"answerText" ascending:YES];
-        NSArray *descriptors = [NSArray arrayWithObject:nameDescriptor];
-        request.sortDescriptors = descriptors;
-        request.predicate = [NSPredicate predicateWithFormat:@"question = %@",self.question];
+//        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:ENTITY_ANSWER];
+//        NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"answerText" ascending:YES];
+//        NSArray *descriptors = [NSArray arrayWithObject:nameDescriptor];
+//        request.sortDescriptors = descriptors;
+//        request.predicate = [NSPredicate predicateWithFormat:@"question = %@",self.question];
+//        
+//        answersVC.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.question.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
         
-        answersVC.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.question.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        answersVC.objects = [self.question.answers array];
+        answersVC.allowsEditting = YES;
+        answersVC.allowsAdding = YES;
+        answersVC.allowsDeletion = YES;
+        answersVC.identifier = OPTVC_ANSWERS;
+        answersVC.name = @"Answers";
     }
 
     else if([segue.identifier isEqualToString:@"showResults"]){
         BarGraphViewController *viewController = segue.destinationViewController;
         viewController.question = self.question;
+        viewController.title = self.question.questionName;
+        viewController.expirationDate = [GKMatchHandler sharedHandler].questionExpirationDate;
+        viewController.questionTime = self.question.time;
     }
     
 }
 
-- (void)broadCastQuestion:(Question *)question
+- (void)askQuestion:(Question *)question
 {
-    NSData *packet = [QuestionMessage dataWithQuestion:self.question];
+    if(![GKMatchHandler sharedHandler].match)return;
+    
+    NSData *packet = [DataMessage dataWithQuestion:self.question];
     
     NSError *error;
-    [GKMatchHandler sharedHandler].currentQuestion = question;
-    [[GKMatchHandler sharedHandler].match sendDataToAllPlayers: packet withDataMode: GKMatchSendDataUnreliable error:&error];
+    GKMatchHandler *handler = [GKMatchHandler sharedHandler];
+    handler.currentQuestion = question;
+    handler.questionExpirationDate = [NSDate dateWithTimeIntervalSinceNow:question.time];
+    NSLog(@"%@",handler.questionExpirationDate);
+    [handler.match sendDataToAllPlayers: packet withDataMode: GKMatchSendDataReliable error:&error];
     if (error != nil)
     {
         NSLog(@"%@",error.debugDescription);
+    }
+    
+    //Reset all answers to 0
+    for (Answer *answer in self.question.answers) {
+        answer.numPeople = 0;
+    }
+    
+    [self performSegueWithIdentifier:@"showResults" sender:self];
+    
+}
+
+#pragma mark - Object picker delegate
+
+- (void)objectPicker:(ObjectPickerTableViewController *)picker finishedWithSelectedObjects:(NSArray *)objects
+{
+    if([picker.identifier isEqualToString:OPTVC_ANSWERS])
+    {
+        Answer *correctAnswer = [objects lastObject];
+        self.question.correctIndex = [self.question.answers indexOfObject:correctAnswer];
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)objectPicker:(ObjectPickerTableViewController *)picker didChooseObjects:(NSArray *)objects
+{
+    if([picker.identifier isEqualToString:OPTVC_TIMES])
+    {
+        NSDate *timeDate = [objects lastObject];
+        self.question.time = [timeDate timeIntervalSinceReferenceDate];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"m:ss";
+        
+        self.timeCell.detailTextLabel.text = [formatter stringFromDate:timeDate];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
+- (void)objectPicker:(ObjectPickerTableViewController *)picker didChangeCellTitleForObject:(id)object atIndexPath:(NSIndexPath *)indexPath toTitle:(NSString *)toTitle
+{
+    if([picker.identifier isEqualToString:OPTVC_ANSWERS])
+    {
+        Answer *answer = object;
+        answer.answerText = toTitle;
+        [answer.managedObjectContext save:NULL];
+    }
+}
+
+- (void)objectPicker:(ObjectPickerTableViewController *)picker wantsToAddNewObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([picker.identifier isEqualToString:OPTVC_ANSWERS])
+    {
+        Answer *answer = [Answer nextAnswerForQuestion:self.question];
+        NSMutableOrderedSet *set = [self.question.answers mutableCopy];
+        [set addObject:answer];
+        self.question.answers = set;
+        [self.question.managedObjectContext save:NULL];
+        
+        //Update tableView
+        picker.objects = [self.question.answers array];
+        [picker.tableView reloadData];
+    }
+}
+
+- (void)objectPicker:(ObjectPickerTableViewController *)picker wantsToDeleteObject:(id)object
+{
+    if([picker.identifier isEqualToString:OPTVC_ANSWERS])
+    {
+        Answer *answer = object;
+        NSMutableOrderedSet *set = [self.question.answers mutableCopy];
+        [set removeObject:answer];
+        self.question.answers = set;
+        [self.question.managedObjectContext save:NULL];
+        
+        picker.objects = [self.question.answers array];
+        [picker.tableView reloadData];
     }
 }
 
@@ -104,7 +206,7 @@
 -(void)userDidPickEntities:(NSArray *)entities forEntityType:(NSString *)type
 {
     if ([type isEqualToString:ENTITY_LECTURE]) {
-        self.question.lecture = [entities lastObject];
+        if([entities lastObject])self.question.lecture = [entities lastObject];
     }
     else if ([type isEqualToString:ENTITY_TOPIC]) {
         self.question.topics = [NSSet setWithArray:entities];
@@ -136,6 +238,19 @@
     [self.question.managedObjectContext save:NULL];
 }
 
+- (void)userDidChangeCellTitleForEntity:(id)entity withText:(NSString *)text
+{
+    if ([entity isKindOfClass:[Lecture class]]) {
+        [(Lecture *)entity setLectureName:text];
+    }
+    else if ([entity isKindOfClass:[Topic class]]) {
+        [(Topic *)entity setTopicName:text];
+    }
+    else if ([entity isKindOfClass:[Answer class]]) {
+        [(Answer *)entity setAnswerText:text];
+    }
+}
+
 #pragma  mark - Alert view delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -155,6 +270,7 @@
 {
     if (textField == self.titleField) {
         self.question.questionName = textField.text;
+        self.title = self.question.questionName;
     }
     else if(textField == self.promptField){
         self.question.prompt = textField.text;
@@ -188,6 +304,12 @@
     self.titleField.text = self.question.questionName;
     self.promptField.text = self.question.prompt;
     
+    NSDate *timeDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.question.time];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"m:ss";
+    
+    self.timeCell.detailTextLabel.text = [formatter stringFromDate:timeDate];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -201,6 +323,8 @@
     [self setTitleField:nil];
     [self setPromptField:nil];
     [self setLectureCell:nil];
+    [self setTimeCell:nil];
+    [self setAnswersCell:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -221,6 +345,7 @@
         [self.navigationController setToolbarHidden:YES animated:YES];
     }
     [super viewDidAppear:animated];
+    if (!self.question || !self.question.lecture)[self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -288,9 +413,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([indexPath isEqual: [self.tableView indexPathForCell:self.askCell]]){
-        [self broadCastQuestion:self.question];
+        [self askQuestion:self.question];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    
+    else if([indexPath isEqual: [self.tableView indexPathForCell:self.timeCell]]){
+        TimePickerTableViewController *picker = [[TimePickerTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:picker];
+        
+        NSMutableArray *times = [NSMutableArray array];
+        NSTimeInterval intervals[] = {15, 30, 45, 60, 90, 120};
+        
+        for (int i = 0; i < sizeof(intervals)/sizeof(NSTimeInterval); i ++) {
+            NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:intervals[i]];
+            [times addObject:date];
+        }
+        
+        
+        picker.objects = times;
+        picker.delegate = self;
+        picker.identifier = OPTVC_TIMES;
+        [self presentModalViewController:navcon animated:YES];
+    }
+    
 }
 
 @end

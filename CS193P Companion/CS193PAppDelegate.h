@@ -14,4 +14,6 @@
 
 - (void)displayQuestionWithInfo:(NSDictionary *)info;
 
+- (void)returnHome;
+
 @end

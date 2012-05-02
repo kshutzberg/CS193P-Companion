@@ -17,7 +17,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"lecture.lectureName = %@",lecture.lectureName];
     NSUInteger count = [context countForFetchRequest:request error:NULL];
     NSString *questionName = [NSString stringWithFormat:@"Question %d",count + 1];
-    return [Question questionWithName:questionName andPrompt:@"Please choose one:" andTime:30 andAnswers:nil forLecture:lecture withTopics:nil inManagedObjectContext:context];
+    return [Question questionWithName:questionName andPrompt:@"Please choose an answer." andTime:30 andAnswers:nil forLecture:lecture withTopics:nil inManagedObjectContext:context];
 }
 
 + (Question *)questionWithName:(NSString *)name

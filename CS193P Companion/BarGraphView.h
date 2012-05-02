@@ -22,6 +22,8 @@
 
 @property (nonatomic, weak) id<BarGraphViewDelegate> delegate;
 
+@property (nonatomic, copy) NSString *bannerText; //Leaving this emtpy will not display a banner
+
 @property (nonatomic, strong) NSArray *answers; //An array of NSNumber integers
 @property (nonatomic) NSUInteger correctIndex; //The index in the array of the correct answer
 

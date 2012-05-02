@@ -61,4 +61,6 @@
 + (Answer *)answerWithString:(NSString *)text inContext:(NSManagedObjectContext *)context;
 + (NSArray *)answersFromStrings:(NSArray *)answers inContext:(NSManagedObjectContext *)context;
 
+@property (readonly) NSNumber *order;
+
 @end

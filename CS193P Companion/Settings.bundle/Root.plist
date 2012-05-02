@@ -30,6 +30,32 @@
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Demo &amp; Debug Options</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Generate test results</string>
+			<key>Key</key>
+			<string>test_results</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Allow multiple answers</string>
+			<key>Key</key>
+			<string>multiple_answers</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

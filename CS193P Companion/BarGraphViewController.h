@@ -13,4 +13,8 @@
 @interface BarGraphViewController : UIViewController
 @property (nonatomic, weak) IBOutlet BarGraphView *graphView;
 @property (nonatomic, strong) Question *question;
+
+@property (strong, nonatomic) IBOutlet UIProgressView *progressView;
+@property (nonatomic) NSTimeInterval questionTime;
+@property (nonatomic, strong) NSDate *expirationDate;
 @end

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC06DD78148488290068C979 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EC06DD77148488290068C979 /* TODO */; };
 		EC06DDB91485DEC10068C979 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC06DDB81485DEC10068C979 /* CoreDataTableViewController.m */; };
 		EC06DDBE1485DFEA0068C979 /* CS193PInstructorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC06DDBD1485DFEA0068C979 /* CS193PInstructorTableViewController.m */; };
 		EC4114BC14903F240013F48E /* UIButton+Toggle.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4114BB14903F240013F48E /* UIButton+Toggle.m */; };
-		EC5C997C148EBB9D00250102 /* QuestionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C997B148EBB9D00250102 /* QuestionMessage.m */; };
+		EC4114C01490D5690013F48E /* Question+ReceiveAnswerData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4114BF1490D5690013F48E /* Question+ReceiveAnswerData.m */; };
+		EC5A1DCA1495E7DB001338A5 /* iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DC91495E7DB001338A5 /* iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg */; };
+		EC5A1DCD1495E7E3001338A5 /* Mobile iPhone Rural Affair.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DCC1495E7E3001338A5 /* Mobile iPhone Rural Affair.jpg */; };
+		EC5A1DD514961703001338A5 /* KevinShutzbergCS193P.key in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DD414961703001338A5 /* KevinShutzbergCS193P.key */; };
+		EC5A1DDD1496AEFD001338A5 /* icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DDB1496AEFD001338A5 /* icon_ipad.png */; };
+		EC5A1DE01496AF48001338A5 /* icon_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */; };
+		EC5A1DE21496B2C6001338A5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = EC5A1DE11496B2C6001338A5 /* README */; };
 		EC5C997F148F306100250102 /* AskerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C997E148F306000250102 /* AskerViewController.m */; };
 		EC5CA5851485E88E0053DAE7 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5831485E88E0053DAE7 /* DataModel.xcdatamodeld */; };
 		EC5CA5971485E8C10053DAE7 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5961485E8C10053DAE7 /* Topic.m */; };
@@ -24,6 +29,8 @@
 		EC5CA5AB14862D760053DAE7 /* TopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5AA14862D760053DAE7 /* TopicsTableViewController.m */; };
 		EC5CA5AE14862DA30053DAE7 /* LecturesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5AD14862DA30053DAE7 /* LecturesTableViewController.m */; };
 		EC5CA5B114862E250053DAE7 /* QuestionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5CA5B014862E250053DAE7 /* QuestionsTableViewController.m */; };
+		EC6527B51492F7130012C819 /* TimePickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6527B41492F7120012C819 /* TimePickerTableViewController.m */; };
+		EC6C6E711495B87000EB0659 /* AnswerPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6C6E701495B87000EB0659 /* AnswerPickerTableViewController.m */; };
 		EC7EB56C148469C100173623 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56B148469C100173623 /* UIKit.framework */; };
 		EC7EB56E148469C100173623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56D148469C100173623 /* Foundation.framework */; };
 		EC7EB570148469C100173623 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EB56F148469C100173623 /* CoreGraphics.framework */; };
@@ -40,8 +47,11 @@
 		ECC456191488AC82001AA453 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC456181488AC82001AA453 /* Answer.m */; };
 		ECC4561C1488DB47001AA453 /* EntityPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC4561B1488DB46001AA453 /* EntityPickerTableViewController.m */; };
 		ECC4561F1488DE4B001AA453 /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC4561E1488DE4A001AA453 /* BarGraphViewController.m */; };
-		ECC456221488E193001AA453 /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC456211488E193001AA453 /* AxesDrawer.m */; };
 		ECC456291488F9E6001AA453 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC456281488F9E6001AA453 /* Question.m */; };
+		ECCFA8C514920C4000AE6A6C /* ObjectPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCFA8C414920C3F00AE6A6C /* ObjectPickerTableViewController.m */; };
+		ECF08BF11494BD4700DEEB0C /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF08BF01494BD4700DEEB0C /* EditableCell.m */; };
+		ECF08BF51494BE4000DEEB0C /* NSArray+Zeros.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF08BF41494BE4000DEEB0C /* NSArray+Zeros.m */; };
+		ECF08BF7149585E500DEEB0C /* Background 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECF08BF6149585E500DEEB0C /* Background 1.jpg */; };
 		ECF73F971489F1270018C4CC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF73F961489F1270018C4CC /* HomeViewController.m */; };
 		ECF73FAF148CA4FD0018C4CC /* QuestionSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF73FAE148CA4FC0018C4CC /* QuestionSearchTableViewController.m */; };
 		ECFE5C52148DF9800078418E /* GKMatchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFE5C51148DF9800078418E /* GKMatchHandler.m */; };
@@ -49,15 +59,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC06DD77148488290068C979 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TODO; path = "CS193P Companion/TODO"; sourceTree = "<group>"; };
 		EC06DDB71485DEC10068C979 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		EC06DDB81485DEC10068C979 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		EC06DDBC1485DFEA0068C979 /* CS193PInstructorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CS193PInstructorTableViewController.h; sourceTree = "<group>"; };
 		EC06DDBD1485DFEA0068C979 /* CS193PInstructorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CS193PInstructorTableViewController.m; sourceTree = "<group>"; };
 		EC4114BA14903F240013F48E /* UIButton+Toggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Toggle.h"; sourceTree = "<group>"; };
 		EC4114BB14903F240013F48E /* UIButton+Toggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Toggle.m"; sourceTree = "<group>"; };
-		EC5C997A148EBB9D00250102 /* QuestionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionMessage.h; sourceTree = "<group>"; };
-		EC5C997B148EBB9D00250102 /* QuestionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionMessage.m; sourceTree = "<group>"; };
+		EC4114BE1490D5690013F48E /* Question+ReceiveAnswerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Question+ReceiveAnswerData.h"; sourceTree = "<group>"; };
+		EC4114BF1490D5690013F48E /* Question+ReceiveAnswerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Question+ReceiveAnswerData.m"; sourceTree = "<group>"; };
+		EC5A1DC91495E7DB001338A5 /* iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg"; sourceTree = "<group>"; };
+		EC5A1DCC1495E7E3001338A5 /* Mobile iPhone Rural Affair.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mobile iPhone Rural Affair.jpg"; sourceTree = "<group>"; };
+		EC5A1DD414961703001338A5 /* KevinShutzbergCS193P.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = KevinShutzbergCS193P.key; sourceTree = "<group>"; };
+		EC5A1DDA1496AEFD001338A5 /* icon_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone4.png; path = "CS193P Companion/icon_iphone4.png"; sourceTree = "<group>"; };
+		EC5A1DDB1496AEFD001338A5 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_ipad.png; path = "CS193P Companion/icon_ipad.png"; sourceTree = "<group>"; };
+		EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_iphone4.png; sourceTree = "<group>"; };
+		EC5A1DE11496B2C6001338A5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		EC5C997D148F305D00250102 /* AskerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskerViewController.h; sourceTree = "<group>"; };
 		EC5C997E148F306000250102 /* AskerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskerViewController.m; sourceTree = "<group>"; };
 		EC5CA5841485E88E0053DAE7 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -77,6 +93,10 @@
 		EC5CA5AD14862DA30053DAE7 /* LecturesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LecturesTableViewController.m; sourceTree = "<group>"; };
 		EC5CA5AF14862E250053DAE7 /* QuestionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsTableViewController.h; sourceTree = "<group>"; };
 		EC5CA5B014862E250053DAE7 /* QuestionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsTableViewController.m; sourceTree = "<group>"; };
+		EC6527B31492F7120012C819 /* TimePickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerTableViewController.h; sourceTree = "<group>"; };
+		EC6527B41492F7120012C819 /* TimePickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTableViewController.m; sourceTree = "<group>"; };
+		EC6C6E6F1495B86F00EB0659 /* AnswerPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerPickerTableViewController.h; sourceTree = "<group>"; };
+		EC6C6E701495B87000EB0659 /* AnswerPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerPickerTableViewController.m; sourceTree = "<group>"; };
 		EC7EB567148469C100173623 /* CS193P Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS193P Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7EB56B148469C100173623 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EC7EB56D148469C100173623 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,10 +123,16 @@
 		ECC4561B1488DB46001AA453 /* EntityPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityPickerTableViewController.m; sourceTree = "<group>"; };
 		ECC4561D1488DE4A001AA453 /* BarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphViewController.h; sourceTree = "<group>"; };
 		ECC4561E1488DE4A001AA453 /* BarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphViewController.m; sourceTree = "<group>"; };
-		ECC456201488E193001AA453 /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
-		ECC456211488E193001AA453 /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		ECC456271488F9E6001AA453 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		ECC456281488F9E6001AA453 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		ECCFA8C314920C3E00AE6A6C /* ObjectPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPickerTableViewController.h; sourceTree = "<group>"; };
+		ECCFA8C414920C3F00AE6A6C /* ObjectPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectPickerTableViewController.m; sourceTree = "<group>"; };
+		ECCFA8C7149290B200AE6A6C /* PickerSelectionModes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerSelectionModes.h; sourceTree = "<group>"; };
+		ECF08BEF1494BD4700DEEB0C /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
+		ECF08BF01494BD4700DEEB0C /* EditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableCell.m; sourceTree = "<group>"; };
+		ECF08BF31494BE4000DEEB0C /* NSArray+Zeros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Zeros.h"; sourceTree = "<group>"; };
+		ECF08BF41494BE4000DEEB0C /* NSArray+Zeros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Zeros.m"; sourceTree = "<group>"; };
+		ECF08BF6149585E500DEEB0C /* Background 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Background 1.jpg"; sourceTree = "<group>"; };
 		ECF73F951489F1270018C4CC /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		ECF73F961489F1270018C4CC /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ECF73FAD148CA4FB0018C4CC /* QuestionSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSearchTableViewController.h; sourceTree = "<group>"; };
@@ -150,14 +176,14 @@
 		EC06DDBA1485DEF90068C979 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECF73FAD148CA4FB0018C4CC /* QuestionSearchTableViewController.h */,
+				ECF73FAE148CA4FC0018C4CC /* QuestionSearchTableViewController.m */,
 				EC5C997D148F305D00250102 /* AskerViewController.h */,
 				EC5C997E148F306000250102 /* AskerViewController.m */,
 				ECF73F951489F1270018C4CC /* HomeViewController.h */,
 				ECF73F961489F1270018C4CC /* HomeViewController.m */,
 				EC06DDBC1485DFEA0068C979 /* CS193PInstructorTableViewController.h */,
 				EC06DDBD1485DFEA0068C979 /* CS193PInstructorTableViewController.m */,
-				ECC4561A1488DB46001AA453 /* EntityPickerTableViewController.h */,
-				ECC4561B1488DB46001AA453 /* EntityPickerTableViewController.m */,
 				EC5CA5AC14862DA30053DAE7 /* LecturesTableViewController.h */,
 				EC5CA5AD14862DA30053DAE7 /* LecturesTableViewController.m */,
 				EC5CA5A914862D760053DAE7 /* TopicsTableViewController.h */,
@@ -166,12 +192,10 @@
 				EC5CA5B014862E250053DAE7 /* QuestionsTableViewController.m */,
 				ECB474F71487520E00F7EB62 /* QuestionInfoViewController.h */,
 				ECB474F81487520E00F7EB62 /* QuestionInfoViewController.m */,
-				ECF73FAD148CA4FB0018C4CC /* QuestionSearchTableViewController.h */,
-				ECF73FAE148CA4FC0018C4CC /* QuestionSearchTableViewController.m */,
-				EC06DDB71485DEC10068C979 /* CoreDataTableViewController.h */,
-				EC06DDB81485DEC10068C979 /* CoreDataTableViewController.m */,
 				ECC4561D1488DE4A001AA453 /* BarGraphViewController.h */,
 				ECC4561E1488DE4A001AA453 /* BarGraphViewController.m */,
+				EC06DDB71485DEC10068C979 /* CoreDataTableViewController.h */,
+				EC06DDB81485DEC10068C979 /* CoreDataTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -194,7 +218,9 @@
 		EC7EB55C148469C000173623 = {
 			isa = PBXGroup;
 			children = (
-				EC06DD77148488290068C979 /* TODO */,
+				EC5A1DE11496B2C6001338A5 /* README */,
+				EC5A1DDF1496AF48001338A5 /* icon_iphone4.png */,
+				EC5A1DD414961703001338A5 /* KevinShutzbergCS193P.key */,
 				EC7EB571148469C100173623 /* CS193P Companion */,
 				EC7EB56A148469C100173623 /* Frameworks */,
 				EC7EB568148469C100173623 /* Products */,
@@ -227,16 +253,17 @@
 			children = (
 				EC7EB58814846BD100173623 /* Settings.bundle */,
 				EC7EB57D148469C100173623 /* MainStoryboard.storyboard */,
-				EC4114BA14903F240013F48E /* UIButton+Toggle.h */,
-				EC4114BB14903F240013F48E /* UIButton+Toggle.m */,
 				EC7EB57A148469C100173623 /* CS193PAppDelegate.h */,
 				EC7EB57B148469C100173623 /* CS193PAppDelegate.m */,
 				ECFE5C57148E1F9F0078418E /* Game Kit */,
 				ECFE5C53148DFD840078418E /* UserMode.h */,
 				ECFE5C4F148DDD990078418E /* Table View Cells */,
+				ECCFA8C8149290D300AE6A6C /* Picker Table View Controllers */,
 				ECC456231488E1A5001AA453 /* Views */,
+				ECF08BF21494BE1000DEEB0C /* Categories */,
 				EC06DDBA1485DEF90068C979 /* View Controllers */,
 				EC7EB58A1484819C00173623 /* Core Data */,
+				ECF08BF81495865D00DEEB0C /* Images */,
 				EC7EB572148469C100173623 /* Supporting Files */,
 			);
 			path = "CS193P Companion";
@@ -259,6 +286,8 @@
 				EC5CA5831485E88E0053DAE7 /* DataModel.xcdatamodeld */,
 				EC06DDBB1485DF170068C979 /* Entities */,
 				EC06DDB61485CD190068C979 /* Entity Creation */,
+				EC4114BE1490D5690013F48E /* Question+ReceiveAnswerData.h */,
+				EC4114BF1490D5690013F48E /* Question+ReceiveAnswerData.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -268,10 +297,48 @@
 			children = (
 				ECB474FB14880CBC00F7EB62 /* BarGraphView.h */,
 				ECB474FC14880CBC00F7EB62 /* BarGraphView.m */,
-				ECC456201488E193001AA453 /* AxesDrawer.h */,
-				ECC456211488E193001AA453 /* AxesDrawer.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		ECCFA8C8149290D300AE6A6C /* Picker Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCFA8C7149290B200AE6A6C /* PickerSelectionModes.h */,
+				ECCFA8C314920C3E00AE6A6C /* ObjectPickerTableViewController.h */,
+				ECCFA8C414920C3F00AE6A6C /* ObjectPickerTableViewController.m */,
+				ECC4561A1488DB46001AA453 /* EntityPickerTableViewController.h */,
+				ECC4561B1488DB46001AA453 /* EntityPickerTableViewController.m */,
+				EC6C6E6F1495B86F00EB0659 /* AnswerPickerTableViewController.h */,
+				EC6C6E701495B87000EB0659 /* AnswerPickerTableViewController.m */,
+				EC6527B31492F7120012C819 /* TimePickerTableViewController.h */,
+				EC6527B41492F7120012C819 /* TimePickerTableViewController.m */,
+			);
+			name = "Picker Table View Controllers";
+			sourceTree = "<group>";
+		};
+		ECF08BF21494BE1000DEEB0C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EC4114BA14903F240013F48E /* UIButton+Toggle.h */,
+				EC4114BB14903F240013F48E /* UIButton+Toggle.m */,
+				ECF08BF31494BE4000DEEB0C /* NSArray+Zeros.h */,
+				ECF08BF41494BE4000DEEB0C /* NSArray+Zeros.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		ECF08BF81495865D00DEEB0C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EC5A1DC91495E7DB001338A5 /* iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg */,
+				EC5A1DCC1495E7E3001338A5 /* Mobile iPhone Rural Affair.jpg */,
+				ECF08BF6149585E500DEEB0C /* Background 1.jpg */,
+				EC5A1DDA1496AEFD001338A5 /* icon_iphone4.png */,
+				EC5A1DDB1496AEFD001338A5 /* icon_ipad.png */,
+			);
+			name = Images;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		ECFE5C4F148DDD990078418E /* Table View Cells */ = {
@@ -279,6 +346,8 @@
 			children = (
 				ECC455FD14886C27001AA453 /* QuestionCell.h */,
 				ECC455FE14886C27001AA453 /* QuestionCell.m */,
+				ECF08BEF1494BD4700DEEB0C /* EditableCell.h */,
+				ECF08BF01494BD4700DEEB0C /* EditableCell.m */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -290,8 +359,6 @@
 				ECFE5C51148DF9800078418E /* GKMatchHandler.m */,
 				ECFE5C5B148EAB6F0078418E /* DataMessage.h */,
 				ECFE5C5C148EAB6F0078418E /* DataMessage.m */,
-				EC5C997A148EBB9D00250102 /* QuestionMessage.h */,
-				EC5C997B148EBB9D00250102 /* QuestionMessage.m */,
 			);
 			name = "Game Kit";
 			sourceTree = "<group>";
@@ -322,7 +389,7 @@
 		EC7EB55E148469C000173623 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Stanford University";
 			};
 			buildConfigurationList = EC7EB561148469C000173623 /* Build configuration list for PBXProject "CS193P Companion" */;
@@ -350,7 +417,13 @@
 				EC7EB576148469C100173623 /* InfoPlist.strings in Resources */,
 				EC7EB57F148469C100173623 /* MainStoryboard.storyboard in Resources */,
 				EC7EB58914846BD100173623 /* Settings.bundle in Resources */,
-				EC06DD78148488290068C979 /* TODO in Resources */,
+				ECF08BF7149585E500DEEB0C /* Background 1.jpg in Resources */,
+				EC5A1DCA1495E7DB001338A5 /* iPhone-room_com___iphone_wallpaper_hole_i_blue_by_mrforscreen.jpg in Resources */,
+				EC5A1DCD1495E7E3001338A5 /* Mobile iPhone Rural Affair.jpg in Resources */,
+				EC5A1DD514961703001338A5 /* KevinShutzbergCS193P.key in Resources */,
+				EC5A1DDD1496AEFD001338A5 /* icon_ipad.png in Resources */,
+				EC5A1DE01496AF48001338A5 /* icon_iphone4.png in Resources */,
+				EC5A1DE21496B2C6001338A5 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,15 +454,19 @@
 				ECC456191488AC82001AA453 /* Answer.m in Sources */,
 				ECC4561C1488DB47001AA453 /* EntityPickerTableViewController.m in Sources */,
 				ECC4561F1488DE4B001AA453 /* BarGraphViewController.m in Sources */,
-				ECC456221488E193001AA453 /* AxesDrawer.m in Sources */,
 				ECC456291488F9E6001AA453 /* Question.m in Sources */,
 				ECF73F971489F1270018C4CC /* HomeViewController.m in Sources */,
 				ECF73FAF148CA4FD0018C4CC /* QuestionSearchTableViewController.m in Sources */,
 				ECFE5C52148DF9800078418E /* GKMatchHandler.m in Sources */,
 				ECFE5C5D148EAB6F0078418E /* DataMessage.m in Sources */,
-				EC5C997C148EBB9D00250102 /* QuestionMessage.m in Sources */,
 				EC5C997F148F306100250102 /* AskerViewController.m in Sources */,
 				EC4114BC14903F240013F48E /* UIButton+Toggle.m in Sources */,
+				EC4114C01490D5690013F48E /* Question+ReceiveAnswerData.m in Sources */,
+				ECCFA8C514920C4000AE6A6C /* ObjectPickerTableViewController.m in Sources */,
+				EC6527B51492F7130012C819 /* TimePickerTableViewController.m in Sources */,
+				ECF08BF11494BD4700DEEB0C /* EditableCell.m in Sources */,
+				ECF08BF51494BE4000DEEB0C /* NSArray+Zeros.m in Sources */,
+				EC6C6E711495B87000EB0659 /* AnswerPickerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +492,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EC6C6E6D1495874F00EB0659 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		EC6C6E6E1495874F00EB0659 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS193P Companion/CS193P Companion-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "CS193P Companion/CS193P Companion-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
 		EC7EB583148469C100173623 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -431,6 +543,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -449,6 +562,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -465,6 +579,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CS193P Companion/CS193P Companion-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "CS193P Companion/CS193P Companion-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -476,6 +591,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CS193P Companion/CS193P Companion-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "CS193P Companion/CS193P Companion-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -490,6 +606,7 @@
 			buildConfigurations = (
 				EC7EB583148469C100173623 /* Debug */,
 				EC7EB584148469C100173623 /* Release */,
+				EC6C6E6D1495874F00EB0659 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -499,6 +616,7 @@
 			buildConfigurations = (
 				EC7EB586148469C100173623 /* Debug */,
 				EC7EB587148469C100173623 /* Release */,
+				EC6C6E6E1495874F00EB0659 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

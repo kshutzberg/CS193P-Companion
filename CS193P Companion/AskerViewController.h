@@ -14,5 +14,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *promptLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *answerButton;
+
+@property (nonatomic, strong) NSString *questionTitle;
+@property (nonatomic, strong) NSString *prompt;
+@property (nonatomic, strong) NSDate *completionDate;
+
+@property (nonatomic) NSTimeInterval timeLeft;
 
 @end

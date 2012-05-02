@@ -23,24 +23,26 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    QuestionInfoViewController *questionVC = segue.destinationViewController;
     Question *question = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:sender]];
     
     if ([segue.identifier isEqualToString:@"showQuestion"]) {
-        QuestionInfoViewController *questionVC = segue.destinationViewController;
         questionVC.question = question;
     }
     else if([segue.identifier isEqualToString:@"newQuestion"]){
-        QuestionInfoViewController *questionVC = segue.destinationViewController;
         NSManagedObjectContext *context = self.fetchedResultsController.managedObjectContext;
         
         Lecture *lecture = self.currentLecture;
         Topic *topic = self.currentTopic;
         
         if(!lecture)lecture = [[context executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:ENTITY_LECTURE] error:NULL] lastObject];
+        if(!lecture && topic)lecture = [Lecture nextLectureInContext:topic.managedObjectContext];
+        if(!lecture && !topic)[[NSException exceptionWithName:@"No lecture or topic" reason:nil userInfo:nil] raise];
         
         questionVC.question = [Question nextQuestionForLecture:lecture];
         if (topic)[questionVC.question addTopicsObject:topic];
     }
+    questionVC.title = question.questionName;
 }
 
 #pragma mark - View life cycle

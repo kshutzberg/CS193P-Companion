@@ -9,47 +9,42 @@
 #import "CS193PAppDelegate.h"
 #import <GameKit/GameKit.h>
 #import "AskerViewController.h"
-#import "QuestionMessage.h"
+#import "DataMessage.h"
+#import "HomeViewController.h"
+#import "GKMatchHandler.h"
 
 @implementation CS193PAppDelegate
 
 @synthesize window = _window;
 
-- (void) authenticateLocalPlayer
-{
-    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
-    [localPlayer authenticateWithCompletionHandler:^(NSError *error) {
-        if (localPlayer.isAuthenticated)
-        {
-            // Perform additional tasks for the authenticated player.
-            NSLog(@"Player {%@} Authenticated!",localPlayer.alias);
-        }
-        
-        else
-        {
-            [[[UIAlertView alloc] initWithTitle:@"Gamecenter Required" message:@"Please log in to game center to connect to the class." delegate:nil cancelButtonTitle:@"OK. Ya, I'm an idiot." otherButtonTitles: nil] show];
-            NSLog(@"Could not authenticate local player");
-            NSLog(@"%@",error);
-        }
-    }];
+- (void)returnHome{
+    UIViewController *visableVC = [(UINavigationController *)self.window.rootViewController visibleViewController];
+                                   
+    self.window.rootViewController = [visableVC.storyboard instantiateInitialViewController];
 }
 
 - (void)displayQuestionWithInfo:(NSDictionary *)info
 {
-    UIViewController *root = self.window.rootViewController;
-    if(root.presentedViewController)
-        [root dismissModalViewControllerAnimated:NO];
+    UIViewController *visableVC = [(UINavigationController *)self.window.rootViewController visibleViewController];
     
-    AskerViewController *asker = [root.storyboard instantiateViewControllerWithIdentifier:@"asker"];
+    //If a question has just been asked, cancel it before displaying this one
+    if([visableVC isKindOfClass:[AskerViewController class]])
+        visableVC = visableVC.presentingViewController;
+        [visableVC dismissModalViewControllerAnimated:NO];
+    
+    AskerViewController *asker = [visableVC.storyboard instantiateViewControllerWithIdentifier:@"asker"];
     asker.answers = [info valueForKey:ANSWERS];
-    asker.promptLabel.text = [info valueForKey:PROMPT];
-    asker.titleLabel.text = [info valueForKey:QUESTION_NAME]; 
-    [root presentModalViewController: asker animated:YES];
+    asker.prompt = [info valueForKey:PROMPT];
+    asker.questionTitle = [info valueForKey:QUESTION_NAME];
+    asker.timeLeft = [(NSDate *)[info valueForKey:TIME] timeIntervalSinceReferenceDate];
+    [visableVC presentModalViewController: asker animated:YES];
 }
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     //[self authenticateLocalPlayer];
+    
     return YES;
 }
 							
@@ -67,6 +62,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    exit(0); //Sadly, I did not have enough time to support backgrounding because of the fact that the user can change their mode, and apparently my view is not loaded enough to reinitialize itself... Plus, the GameKitMatch will be lost anyway so not much of a point in stayinga active for now (I would probably implement this later if I had time).
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -81,6 +77,11 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    UIViewController *viewcontroller = [(UINavigationController *)self.window.rootViewController visibleViewController];
+    if([viewcontroller isKindOfClass:[HomeViewController class]])
+    {
+        [(HomeViewController *)viewcontroller setUpGameWithMode:[GKMatchHandler sharedHandler].userMode]; //No idea why this doesnt always work.  I shouldnt have to do anything here because I take care of everyting in viewWillAppear and viewDidAppear.  Sorry if I don't compeletely support backgrounding with mode changes in between... its a work in progress :)
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

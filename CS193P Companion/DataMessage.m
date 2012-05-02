@@ -7,65 +7,57 @@
 //
 
 #import "DataMessage.h"
+
 @interface DataMessage()
 @end
 
 @implementation DataMessage
 
-
-+ (id)message
++ (void)serializeDataMoreEfficiently:(NSData *)data
 {
-    DataMessage *message = (DataMessage *)[[NSManagedObject alloc] init];
+    //f
+}
 
-    //class->super_class = (__bridge_transfer Class)[NSManagedObject class]);
++ (NSData *)dataWithQuestion:(Question *)question
+{
+    //NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:TYPE_QUESTION, OBJECT_TYPE, question.questionName, QUESTION_NAME, question.prompt, PROMPT, [NSDate dateWithTimeIntervalSinceNow: question.time], TIME, question.stringAnswers, ANSWERS, nil];
     
-    return message;
-}
-
-
-
-+ (NSData *)dataWithMessage:(DataMessage *)message
-{
-    DataPacket *packet = [DataPacket packet];
-    packet.type = [message class];
-    packet.message = message;
-    return [NSPropertyListSerialization dataWithPropertyList:packet format:NSPropertyListBinaryFormat_v1_0 options:0 error:NULL];
-}
-
-+ (DataMessage *)messageWithData:(NSData *)data
-{
-    DataPacket *packet = [NSPropertyListSerialization propertyListFromData:data
-                                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                                    format:NULL
-                                                          errorDescription:NULL];
-    packet.message->isa = packet.type;
-    return (id)packet.message;
-}
-@end
-
-
-@interface DataPacket(){
-    NSString *_messageType;
-}
-//@property (nonatomic, strong) NSString *stringMessageType;
-@end
-
-@implementation DataPacket
-//@synthesize stringMessageType = _messageType;
-
-@dynamic message;
-
-- (Class)type { return NSClassFromString(_messageType); }
-- (void)setType:(Class)messageType{_messageType = NSStringFromClass(messageType); }
-
-+ (DataPacket *)packet{ return [[self alloc] init]; }
-
-+ (NSData *)DatatForMessage:(NSDictionary *)message withType:(NSString *)type
-{
-    //NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:type, OBJECT_TYPE, MESSAGE, message, nil];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     
-    //return [NSPropertyListSerialization dataWithPropertyList:dic format:NSPropertyListBinaryFormat_v1_0 options:0 error:NULL];
-    return nil;
+    //Set the type
+    [dictionary setValue:TYPE_QUESTION forKey:MESSAGE_TYPE];
+    
+    //Add the questions attributes
+    [dictionary addEntriesFromDictionary:[question dictionaryWithValuesForKeys:[[question.entity attributesByName] allKeys]]];
+    //Set the expiration time
+    //[dictionary setValue:[NSDate dateWithTimeIntervalSinceNow:question.time] forKey:TIME];
+    
+    //Add the answers:
+    [dictionary setValue:question.stringAnswers forKey:ANSWERS];
+    
+    
+    NSError *err;
+    NSData *data =  [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:&err];
+    if(err)NSLog(@"%@",err.debugDescription);
+    
+    return data;
 }
 
++ (NSData *)dataWithAnswerIndex:(NSUInteger)index
+{
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:TYPE_ANSWER,MESSAGE_TYPE, [NSNumber numberWithInt:index], ANSWER_INDEX, nil];
+    
+    return [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:NULL];
+}
+
++ (NSData *)dataWithInstructorID:(NSString *)instructorID
+{
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:TYPE_INSTRUCTOR_ID,MESSAGE_TYPE, instructorID , INSTRUCTOR_ID, nil];
+    
+    return [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:NULL];
+}
+
+
 @end
+
+

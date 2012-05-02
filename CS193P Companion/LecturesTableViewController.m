@@ -75,7 +75,13 @@
     // Configure the cell...
     Lecture *lecture = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:ENTITY_QUESTION];
+    request.predicate = [NSPredicate predicateWithFormat:@"lecture.lectureName = %@",lecture.lectureName];
+    
+    int numQuestions = [lecture.managedObjectContext countForFetchRequest:request error:NULL];
+    
     cell.textLabel.text = lecture.lectureName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i questions",numQuestions];
     
     return cell;
 }
