@@ -47,6 +47,7 @@
     {
         [self.startButton setTitle: @"Start CS193P" forState:UIControlStateNormal];
         self.instructorButton.hidden = NO;
+        [self.instructorButton toggleEnabled];
     }
     else if(mode ==UserModeStudent)
     {
@@ -62,11 +63,12 @@
     asker.answers = [NSArray arrayWithObjects:@"Answer 1", @"Answer 2", @"Answer 3", @"Answer 4", nil];
     asker.timeLeft = 30;
     asker.questionTitle = @"Test Question";
-    asker.prompt = @"Choose an answer on this dope-ass app.";
+    asker.prompt = @"Choose an answer on this cool app.";
     [self presentModalViewController:asker animated:YES];
 }
 
 #pragma mark - UI adjustments for match/search state
+
 - (IBAction)disconnect:(UIButton *)sender {
     [GKMatchHandler sharedHandler].match.delegate = nil;
     [GKMatchHandler sharedHandler].match = nil;

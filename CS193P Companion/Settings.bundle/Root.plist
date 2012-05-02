@@ -44,7 +44,7 @@
 			<key>Key</key>
 			<string>test_results</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>

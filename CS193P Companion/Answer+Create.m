@@ -27,7 +27,11 @@
     //Initialize Attributes
     answer.answerText = text;
     
-    BOOL testResults = [[[NSUserDefaults standardUserDefaults] objectForKey:@"test_results"] boolValue];
+    NSNumber *testResultsNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"test_results"];
+    if(!testResultsNum){
+        testResultsNum = [NSNumber numberWithBool:YES];  // Default choice
+    }
+    BOOL testResults = [testResultsNum boolValue];
     answer.numPeople = testResults ? arc4random()%10 : 0;
 
     return answer;
